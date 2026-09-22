@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "data-tools"
+version = "0.4.2"
+description = "Small CLI converters for JSON, CSV, YAML, Excel and Parquet"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "22178384" }]
+keywords = ["json", "csv", "yaml", "parquet", "excel", "cli", "converter"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Utilities",
+]
+
+# Core is stdlib-only except pyyaml, which yaml_to_json needs. Everything
+# heavy (pandas, pyarrow, openpyxl) is optional so a bare install stays light.
+dependencies = [
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+# For csv_to_parquet.py and excel_to_csv.py.
+data = ["pandas>=2.0", "pyarrow>=14.0", "openpyxl>=3.1"]
+test = ["pytest>=7.4", "pandas>=2.0", "pyarrow>=14.0", "openpyxl>=3.1", "PyYAML>=6.0"]
+
+[project.urls]
+Homepage = "https://github.com/22178384/data-tools"
+Issues = "https://github.com/22178384/data-tools/issues"
+
+[project.scripts]
+json-to-csv = "json_to_csv:main"
+yaml-to-json = "yaml_to_json:main"
+csv-to-parquet = "csv_to_parquet:main"
+excel-to-csv = "excel_to_csv:main"
+dedup-json = "dedup_json:main"
+concat-csv = "concat_csv:main"
+schema-infer = "schema_infer:main"
+
+[tool.setuptools]
+# These are loose scripts at the repo root, not a package. That's fine for a
+# toolbox; I don't want a src/ layout here.
+py-modules = [
+    "json_to_csv",
+    "yaml_to_json",
+    "csv_to_parquet",
+    "excel_to_csv",
+    "dedup_json",
+    "concat_csv",
+    "schema_infer",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+filterwarnings = [
+    # pandas still nags about this on 3.9.
+    "ignore::DeprecationWarning:pandas.*",
+]
