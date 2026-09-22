@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1042,
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "active": true,
+    "signup_date": "2023-11-02",
+    "plan": {
+      "tier": "pro",
+      "seats": 3,
+      "renewal": "2024-11-02"
+    },
+    "tags": ["analytics", "beta"],
+    "last_login": "2024-03-14T09:12:44",
+    "monthly_spend": 49.0
+  },
+  {
+    "id": 1043,
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "active": false,
+    "signup_date": "2023-12-19",
+    "plan": {
+      "tier": "free",
+      "seats": 1,
+      "renewal": null
+    },
+    "tags": [],
+    "last_login": "2024-01-05T22:41:10",
+    "monthly_spend": 0.0
+  },
+  {
+    "id": 1044,
+    "name": "Alan Turing",
+    "email": "alan@example.org",
+    "active": true,
+    "signup_date": "2024-01-07",
+    "plan": {
+      "tier": "team",
+      "seats": 12,
+      "renewal": "2025-01-07"
+    },
+    "tags": ["enterprise"],
+    "last_login": "2024-03-15T07:03:59",
+    "monthly_spend": 199.99
+  },
+  {
+    "id": 1045,
+    "name": "Katherine Johnson",
+    "email": "katherine@example.org",
+    "active": true,
+    "signup_date": "2024-02-28",
+    "plan": {
+      "tier": "pro",
+      "seats": 2,
+      "renewal": "2025-02-28"
+    },
+    "tags": ["analytics"],
+    "last_login": "2024-03-15T18:27:01",
+    "monthly_spend": 49.0
+  }
+]
